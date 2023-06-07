@@ -3,12 +3,23 @@ import "./App.css"
 import QuestBox from "./components/QuestBox"
 import Timer from "./components/Timer"
 import Start from "./components/Start"
+import axios from 'axios'
 
 const App = () => {
   const [username, setUsername] = useState(null)
   const [questionNumber, setQuestionsNumber] = useState(1)
   const [timeOut, setTimeOut] = useState(false)
   const [earned, setEarned] = useState("$ 0")
+
+  const getDataFromServer = async () => {
+    const response = await axios.get("http://localhost:8081/api/v1/getAll");
+
+    console.log(response);
+  }
+
+  useEffect(() => {
+    getDataFromServer()
+  }, [])
 
   const data = [
     {
@@ -388,9 +399,9 @@ const App = () => {
             </div>
             <div className='pyramid'>
               <ul className='moneyList'>
-                {moneyPyramid.map((m) => {
+                {moneyPyramid.map((m, index) => {
                   return (
-                    <li className={questionNumber === m.id ? "moneyListItem active" : "moneyListItem"}>
+                    <li key={index} className={questionNumber === m.id ? "moneyListItem active" : "moneyListItem"}>
                       <span className='moneylistItemNumber'>{m.id}</span>
                       <span className='moneylistAmout'>{m.amount}</span>
                     </li>

@@ -55,9 +55,9 @@ const QuestBox = ({ data, setTimeOut, questionNumber, setQuestionsNumber }) => {
     <div className='box'>
       <div className='question'>{question?.question}</div>
       <div className='answers'>
-        {question?.answers.map((a) => {
+        {question?.answers.map((a, index) => {
           return (
-            <div className={selectedAnswer === a ? className : "answer"} onClick={() => handleClick(a)}>
+            <div key={index} className={selectedAnswer === a ? className : "answer"} onClick={() => handleClick(a)}>
               {a.text}
             </div>
           )
