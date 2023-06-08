@@ -4,6 +4,7 @@ const Start = ({ setUsername }) => {
   const inputRef = useRef()
   const handleClick = () => {
     inputRef.current.value && setUsername(inputRef.current.value)
+
   }
   return (
     <div className='start'>

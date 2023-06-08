@@ -190,3 +190,11 @@ ul {
   font-size: 18px;
   margin-top: 20px;
 }
+
+.name-member
+{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 80px;
+  font-weight: 600;
+}

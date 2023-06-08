@@ -27,6 +27,8 @@ const QuestBox = ({ data, setTimeOut, questionNumber, setQuestionsNumber }) => {
   }
 
   const handleClick = (a) => {
+
+    console.log(a);
     setSelectedAnswer(a)
     setClassName("answer active")
     delay(3000, () => {
